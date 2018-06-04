@@ -104,8 +104,9 @@ abstract class BaseGuiComponent {
         let controllers: any[] = (<any> this._view).controllers;
 
         //only one controller is allowed in editor template
+		// ML: Removed the constraint on controllers.length to allow more than one item inside editors. This allows the use of slots inside custom editor components.
         if (controllers &&
-            controllers.length == 1 &&
+            //controllers.length == 1 &&
             controllers[0].viewModel) {
             let editorVm = controllers[0].viewModel;
             //this is a 'hack' because we don't have params.bind="" in the template
